@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: url(/image/ban.jpg) no-repeat;
+            background-size: cover;
+            color: black;
+            text-align: center;
+            padding: 2rem;
+            height: 20rem;
+        }
+
+        header p img {
+            text-align: center;
+            height: 20rem;
+            width: 40rem;
+        }
+
+        main {
+            display: flex;
+            padding: 2rem;
+        }
+        .content {
+            flex: 3; /* Takes 3/4 of the width */
+        }
+
+        aside {
+            flex: 1; /* Takes 1/4 of the width */
+            margin-left: 2rem;
+            background-color: white;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            position: sticky;
+            top: 0; 
+            height: fit-content;
+        }
+
+        .store {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+        }
+        h2 {
+            margin-top: 2rem;
+            font-size: 1.8rem;
+            text-align: center;
+            color: #4caf50;
+        }
+
+        .product {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            text-align: center;
+            flex: 1 1 calc(33.33% - 2rem);
+            box-sizing: border-box;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        aside {
+            margin-top: 2rem;
+            background-color: white;
+            padding: 1rem;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #cart-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        #cart-list li {
+            margin: 0.5rem 0;
+        }
+        #cart-list li, #fruit-cart-list li, #vegetable-cart-list li {
+            margin: 1rem 0; 
+        }
+
+        .remove-button {
+            background-color: #f44336; 
+            color: white;
+            border: none;
+            padding: 0.3rem 0.5rem;
+            margin-left: 1rem;
+            cursor: pointer;
+        }
+
+        .remove-button:hover {
+            background-color: #e53935;
+        }
+
+        .cancel-button {
+            display: block;
+            background-color: #f44336; 
+            color: white;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            margin: 1rem auto;
+            width: 100px;
+        }
+
+        .cancel-button:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <p><img src="image//fresh.png" width="80rem"></p>
+        </div>
+    </header>
+    <main>
+        <div class="content">
+            <h2>Rainy Seasonal Fruits</h2>
+            <div class="store">
+                <div class="product" data-name="CustardApple" data-price="150">
+                    <img src="image/custardapple.jpg" alt="CustardApple">
+                    <h3>CustardApple</h3>
+                    <p>Price: ₹150 per kg</p>
+                    <button onclick="addToCart('CustardApple', 150, 'fruit')">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Sapota(chikoo)" data-price="70">
+                    <img src="image/sapota.jpg" alt="Sapota(chikoo)">
+                    <h3>Sapota(chikoo)</h3>
+                    <p>Price: ₹70 per kg</p>
+                    <button onclick="addToCart('Sapota(chikoo)', 70, 'fruit')">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Pomegranate" data-price="200">
+                    <img src="image/pomegranate.jpeg" alt="Pomegranate">
+                    <h3>Pomegranate</h3>
+                    <p>Price: ₹200 per kg</p>
+                    <button onclick="addToCart('Pomegranate', 200, 'fruit')">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Banana " data-price="80">
+                    <img src="image/banana.jpeg" alt="Banana">
+                    <h3>Banana</h3>
+                    <p>Price: ₹80 per kg</p>
+                    <button onclick="addToCart('Banana', 80, 'fruit')">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Litchi" data-price="170">
+                    <img src="image/lychee.jpeg" alt="Litchi">
+                    <h3>Litchi</h3>
+                    <p>Price: ₹170 per kg</p>
+                    <button onclick="addToCart('Litchi', 170, 'fruit')">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Guava" data-price="110">
+                    <img src="image/guava.jpeg" alt="Guava">
+                    <h3>Guava</h3>
+                    <p>Price: ₹110 per kg</p>
+                    <button onclick="addToCart('Guava', 110, 'fruit')">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Pineapple" data-price="60">
+                    <img src="image/pineapple.jpeg" alt="Pineapple">
+                    <h3>Pineapple </h3>
+                    <p>Price: ₹60 per kg</p>
+                    <button onclick="addToCart('Pineapple', 60, 'fruit')">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Peach" data-price="70">
+                    <img src="image/Peach.jpeg" alt="Peach">
+                    <h3>Peach </h3>
+                    <p>Price: ₹70 per kg</p>
+                    <button onclick="addToCart('Peach', 70, 'fruit')">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Blackberry" data-price="150">
+                    <img src="image/Blackberry.jpeg" alt="Blackberry">
+                    <h3>Blackberry</h3>
+                    <p>Price: ₹150 per kg</p>
+                    <button onclick="addToCart('Blackberry ', 150, 'fruit')">Add to Cart</button>
+                </div>
+            </div>
+
+            <h2>Rainy Seasonal Vegetables</h2>
+            <div class="store">
+                <div class="product" data-name="SweetPotato" data-price="90">
+                    <img src="image/Sweetpotato.jpeg" alt="SweetPotato">
+                    <h3>SweetPotato </h3>
+                    <p>Price: ₹90 per kg</p>
+                    <button onclick="addToCart('SweetPotato ', 90, 'vegetable')">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Corn" data-price="50">
+                    <img src="image/Corn.jpeg" alt="Corn">
+                    <h3>Corn </h3>
+                    <p>Price: ₹50 per kg</p>
+                    <button onclick="addToCart('Corn ', 50, 'vegetable')">Add to Cart</button>
+                </div>
+                <div class="product" data-name="BitterGourd" data-price="130">
+                    <img src="image/bittergourd.jpeg" alt="BitterGourd">
+                    <h3>BitterGourd </h3>
+                    <p>Price: ₹130 per kg</p>
+                    <button onclick="addToCart('BitterGourd ', 130, 'vegetable')">Add to Cart</button>
+                </div>
+                <div class="product" data-name="GreenPeas" data-price="80">
+                    <img src="image/Greenpeas.jpeg" alt="GreenPeas">
+                    <h3>GreenPeas </h3>
+                    <p>Price: ₹80 per kg</p>
+                    <button onclick="addToCart('GreenPeas ', 80, 'vegetable')">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Cucumber" data-price="60">
+                    <img src="image/Cucumber.jpeg" alt="Cucumber">
+                    <h3>Cucumber </h3>
+                    <p>Price: ₹60 per kg</p>
+                    <button onclick="addToCart('Cucumber ', 60, 'vegetable')">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Drumsticks" data-price="150">
+                    <img src="image/Drumsticks.jpeg" alt="Drumsticks">
+                    <h3>Drumstickd</h3>
+                    <p>Price: ₹150</p>
+                    <button onclick="addToCart('Drumstickd', 150, 'vegetable')">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Spinach" data-price="40">
+                    <img src="image/Spinach.jpeg" alt="Spinach">
+                    <h3>Spinacd</h3>
+                    <p>Price: ₹40</p>
+                    <button onclick="addToCart('Spinach', 40, 'vegetable')">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Bottlegourd" data-price="35">
+                    <img src="image/Bottlegourd.jpeg" alt="Bottlegourd">
+                    <h3>Bottlegourd</h3>
+                    <p>Price: ₹35</p>
+                    <button onclick="addToCart('Bottlegourd', 35, 'vegetable')">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Ridgegourd" data-price="60">
+                    <img src="image/Ridgegourd.jpeg" alt="Ridgegourd">
+                    <h3>Ridgegourd</h3>
+                    <p>Price: ₹60</p>
+                    <button onclick="addToCart('Ridgegourd', 60, 'vegetable')">Add to Cart</button>
+                </div>
+                
+                
+            </div>
+        </div>
+
+        <aside>
+            <h2>Shopping Cart</h2>
+            <h3>Fruits</h3>
+            <ul id="fruit-cart-list"></ul>
+            <h3>Vegetables</h3>
+            <ul id="vegetable-cart-list"></ul>
+            <p>Total: ₹<span id="total-amount">0</span></p>
+            <button onclick="checkout()">Checkout</button>
+            <a href="index1.html" class="cancel-button">Cancel</a>
+        </aside>
+    </main>
+    <script>
+        let cart = [];
+
+        function addToCart(name, price, category) {
+            const product = cart.find(item => item.name === name);
+            if (product) {
+                product.quantity++;
+            } else {
+                cart.push({ name, price, quantity: 1, category });
+            }
+            updateCart();
+        }
+
+        function removeFromCart(name) {
+            const productIndex = cart.findIndex(item => item.name === name);
+            if (productIndex > -1) {
+                cart.splice(productIndex, 1);
+            }
+            updateCart();
+        }
+
+        function updateCart() {
+            const fruitCartList = document.getElementById("fruit-cart-list");
+            const vegetableCartList = document.getElementById("vegetable-cart-list");
+            fruitCartList.innerHTML = "";
+            vegetableCartList.innerHTML = "";
+
+            let totalAmount = 0;
+
+            cart.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = `${item.name} - ₹${item.price.toFixed(2)} x ${item.quantity}`;
+                const removeButton = document.createElement("button");
+                removeButton.textContent = "Remove";
+                removeButton.className = "remove-button";
+                removeButton.onclick = () => removeFromCart(item.name);
+                li.appendChild(removeButton);
+
+                if (item.category === 'fruit') {
+                    fruitCartList.appendChild(li);
+                } else if (item.category === 'vegetable') {
+                    vegetableCartList.appendChild(li);
+                }
+
+                totalAmount += item.price * item.quantity;
+            });
+
+            document.getElementById("total-amount").textContent = totalAmount.toFixed(2);
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+            } else {
+                localStorage.setItem('cart', JSON.stringify(cart));
+                window.location.href = 'payment.html';
+            }
+        }
+    </script>
+</body>
+</html>

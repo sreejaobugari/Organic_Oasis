@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruits</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: url(/image/ban.jpg) no-repeat;
+            background-size: cover;
+            color: black;
+            text-align: center;
+            padding: 2rem;
+            height: 20rem;
+        }
+
+        header p img {
+            text-align: center;
+            height: 20rem;
+            width: 28rem;
+        }
+
+        main {
+            display: flex;
+            padding: 2rem;
+        }
+        .content {
+            flex: 3; 
+        }
+
+        aside {
+            flex: 1; 
+            margin-left: 2rem;
+            background-color: white;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            position: sticky;
+            top: 0; 
+            height: fit-content;
+        }
+        .store {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+        }
+
+        .product {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            text-align: center;
+            flex: 1 1 calc(33.33% - 2rem);
+            box-sizing: border-box;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        aside {
+            margin-top: 2rem;
+            background-color: white;
+            padding: 1rem;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #cart-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        #cart-list li {
+            margin: 0.5rem 0;
+        }
+        .remove-button {
+            background-color: #f44336;  
+            color: white;
+            border: none;
+            padding: 0.3rem 0.5rem;
+            margin-left: 1rem;
+            cursor: pointer;
+        }
+
+        .remove-button:hover {
+            background-color: #e53935;
+        }
+        .cancel-button {
+            display: block;
+            background-color: #f44336;  
+            color: white;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            margin: 1rem auto;
+            width: 100px;
+        }
+
+        .cancel-button:hover {
+            background-color: #e53935;
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <p><img src="image/fruit.jpeg" width="80rem"></p>
+        </div>
+    </header>
+    <main>
+        <div class="content">
+            <div class="store">
+                <div class="product" data-name="Mango" data-price="80">
+                    <img src="image/Mango.jpeg" alt="Mango">
+                    <h3>Mango 1kg</h3>
+                    <p>Price: ₹80</p>
+                    <button onclick="addToCart('Mango 1kg', 80)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Banana" data-price="70">
+                    <img src="image/banana.jpeg" alt="Banana">
+                    <h3>Banana 1kg</h3>
+                    <p>Price: ₹70</p>
+                    <button onclick="addToCart('Banana 1kg', 70)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Apple" data-price="200">
+                    <img src="image/Apple.jpeg" alt="Apple">
+                    <h3>Apple 1kg</h3>
+                    <p>Price: ₹200</p>
+                    <button onclick="addToCart('Apple 1kg', 200)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Orange" data-price="150">
+                    <img src="image/orange.jpeg" alt="Orange">
+                    <h3>Orange 1kg</h3>
+                    <p>Price: ₹150</p>
+                    <button onclick="addToCart('Orange 1kg', 150)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Guava" data-price="50">
+                    <img src="image/guava.jpeg" alt="Guava">
+                    <h3>Guava 1kg</h3>
+                    <p>Price: ₹50</p>
+                    <button onclick="addToCart('Guava 1kg', 50)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Strawberry" data-price="120">
+                    <img src="image/strawberry.jpeg" alt="Strawberry">
+                    <h3>Strawberry 1kg</h3>
+                    <p>Price: ₹120</p>
+                    <button onclick="addToCart('Strawberry 1kg', 120)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Papaya" data-price="90">
+                    <img src="image/papaya.jpeg" alt="Papaya">
+                    <h3>Papaya 1kg</h3>
+                    <p>Price: ₹90</p>
+                    <button onclick="addToCart('Papaya 1kg', 90)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Grapes" data-price="60">
+                    <img src="image/grapes.jpeg" alt="Grapes">
+                    <h3>Grapes 1kg</h3>
+                    <p>Price: ₹60</p>
+                    <button onclick="addToCart('Grapes 1kg', 60)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Pomegranate" data-price="180">
+                    <img src="image/pomegranate.jpeg" alt="Pomegranate">
+                    <h3>Pomegranate 1kg</h3>
+                    <p>Price: ₹180</p>
+                    <button onclick="addToCart('Pomegranate 1kg', 180)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Watermelon" data-price="50">
+                    <img src="image/watermelon.jpeg" alt="Watermelon">
+                    <h3>Watermelon 1kg</h3>
+                    <p>Price: ₹50</p>
+                    <button onclick="addToCart('Watermelon 1kg', 50)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Pineapple" data-price="85">
+                    <img src="image/pineapple.jpeg" alt="Pineapple">
+                    <h3>Pineapple 1kg</h3>
+                    <p>Price: ₹85</p>
+                    <button onclick="addToCart('Pineapple 1kg', 85)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Jackfruit" data-price="200">
+                    <img src="image/jackfruit.jpeg" alt="Jackfruit">
+                    <h3>Jackfruit 1kg</h3>
+                    <p>Price: ₹200</p>
+                    <button onclick="addToCart('Jackfruit 1kg', 200)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Lychee" data-price="160">
+                    <img src="image/lychee.jpeg" alt="Lychee">
+                    <h3>Lychee 1kg</h3>
+                    <p>Price: ₹160</p>
+                    <button onclick="addToCart('Lychee 1kg', 160)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Sapota" data-price="100">
+                    <img src="image/sapota.jpg" alt="Sapota">
+                    <h3>Sapota 1kg</h3>
+                    <p>Price: ₹100</p>
+                    <button onclick="addToCart('Sapota 1kg', 100)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="CustardApple" data-price="130">
+                    <img src="image/custardapple.jpg" alt="CustardApple">
+                    <h3>CustardApple 1kg</h3>
+                    <p>Price: ₹130</p>
+                    <button onclick="addToCart('CustardApple 1kg', 130)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Muskmelon" data-price="80">
+                    <img src="image/muskmelon.jpeg" alt="Muskmelon">
+                    <h3>Muskmelon 1kg</h3>
+                    <p>Price: ₹80</p>
+                    <button onclick="addToCart('Muskmelon 1kg', 80)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Coconut" data-price="40">
+                    <img src="image/coconut.jpeg" alt="Coconut">
+                    <h3>Coconut 1pcs</h3>
+                    <p>Price: ₹40</p>
+                    <button onclick="addToCart('Coconut 1pcs', 40)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="StarFruit" data-price="160">
+                    <img src="image/starfruit.jpeg" alt="StarFruit">
+                    <h3>StarFruit 1kg</h3>
+                    <p>Price: ₹160</p>
+                    <button onclick="addToCart('StarFruit 1kg', 160)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="DragonFruit" data-price="115">
+                    <img src="image/dragonfruit.jpeg" alt="DragonFruit">
+                    <h3>DragonFruit 1kg</h3>
+                    <p>Price: ₹115</p>
+                    <button onclick="addToCart('DragonFruit 1kg', 115)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Kiwi" data-price="150">
+                    <img src="image/kiwi.jpeg" alt="Kiwi">
+                    <h3>Kiwi 1kg</h3>
+                    <p>Price: ₹150</p>
+                    <button onclick="addToCart('Kiwi 1kg', 150)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <aside>
+            <h2>Cart</h2>
+            <ul id="cart-list"></ul>
+            <p>Total: ₹<span id="total-amount">0</span></p>
+            <button onclick="checkout()">Checkout</button>
+            <a href="index1.html" class="cancel-button">Cancel</a>
+        </aside>
+    </main>
+    <script>
+        let cart = [];
+
+        function addToCart(name, price) {
+            const product = cart.find(item => item.name === name);
+            if (product) {
+                product.quantity++;
+            } else {
+                
+                const category = "vegetable"; 
+                cart.push({ name, price, quantity: 1, category }); 
+            }
+            updateCart();
+        }
+        function removeFromCart(name) {
+            const productIndex = cart.findIndex(item => item.name === name);
+            if (productIndex > -1) {
+                cart.splice(productIndex, 1);
+            }
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartList = document.getElementById("cart-list");
+            cartList.innerHTML = "";
+
+            let totalAmount = 0;
+
+            cart.forEach(item => 
+            {
+                const li = document.createElement("li");
+                li.textContent = `${item.name} - ₹${item.price.toFixed(2)} x ${item.quantity}`;
+                const removeButton = document.createElement("button");
+                removeButton.textContent = "Remove";
+                removeButton.className = "remove-button";
+                removeButton.onclick = () => removeFromCart(item.name);
+                li.appendChild(removeButton);
+                cartList.appendChild(li);
+                totalAmount += item.price * item.quantity;
+            });
+
+            document.getElementById("total-amount").textContent = totalAmount.toFixed(2);
+        }
+
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+            } else {
+                
+                localStorage.setItem('cart', JSON.stringify(cart));
+                
+                window.location.href ='payment.html';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegetable</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: url(/image/ban.jpg) no-repeat;
+            background-size: cover;
+            color: black;
+            text-align: center;
+            padding: 2rem;
+            height: 20rem;
+        }
+
+        header p img {
+            text-align: center;
+            height: 20rem;
+            width: 28rem;
+        }
+
+        main {
+            display: flex;
+            padding: 2rem;
+        }
+        .content {
+            flex: 3; 
+        }
+
+        aside {
+            flex: 1; 
+            margin-left: 2rem;
+            background-color: white;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            position: sticky;
+            top: 0; 
+            height: fit-content;
+        }
+
+        .store {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+        }
+
+        .product {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            text-align: center;
+            flex: 1 1 calc(33.33% - 2rem);
+            box-sizing: border-box;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        aside {
+            margin-top: 2rem;
+            background-color: white;
+            padding: 1rem;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #cart-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        #cart-list li {
+            margin: 0.5rem 0;
+        }
+        .remove-button {
+            background-color: #f44336;  
+            color: white;
+            border: none;
+            padding: 0.3rem 0.5rem;
+            margin-left: 1rem;
+            cursor: pointer;
+        }
+
+        .remove-button:hover {
+            background-color: #e53935;
+        }
+        .cancel-button {
+            display: block;
+            background-color: #f44336;  
+            color: white;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            margin: 1rem auto;
+            width: 100px;
+        }
+
+        .cancel-button:hover {
+            background-color: #e53935;
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <p><img src="image/veg1.png" width="80rem"></p>
+        </div>
+    </header>
+    <main>
+        <div class="content">
+            <div class="store">
+                <div class="product" data-name="Tomato" data-price="50">
+                    <img src="image/tomato.jpeg" alt="Tomato">
+                    <h3>Tomato 1kg</h3>
+                    <p>Price: ₹50</p>
+                    <button onclick="addToCart('Tomato 1kg', 50)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Potato" data-price="40">
+                    <img src="image/potato.jpeg" alt="Potato">
+                    <h3>Potato 1kg</h3>
+                    <p>Price: ₹40</p>
+                    <button onclick="addToCart('Potato 1kg', 40)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Carrot" data-price="60">
+                    <img src="image/carrot.jpeg" alt="Carrot">
+                    <h3>Carrot 1kg</h3>
+                    <p>Price: ₹60</p>
+                    <button onclick="addToCart('Carrot 1kg', 60)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Cucumber" data-price="50">
+                    <img src="image/cucumber.jpeg" alt="Cucumber">
+                    <h3>Cucumber 1kg</h3>
+                    <p>Price: ₹50</p>
+                    <button onclick="addToCart('Cucumber 1kg', 50)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Onion" data-price="40">
+                    <img src="image/onion.jpeg" alt="Onion">
+                    <h3>Onion 1kg</h3>
+                    <p>Price: ₹40</p>
+                    <button onclick="addToCart('Onion 1kg', 40)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Bottlegourd" data-price="32">
+                    <img src="image/bottlegourd.jpeg" alt="Bottlegourd">
+                    <h3>Bottlegourd 1kg</h3>
+                    <p>Price: ₹32</p>
+                    <button onclick="addToCart('Bottlegourd 1kg', 32)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Radish" data-price="26">
+                    <img src="image/radish.jpeg" alt="Radish">
+                    <h3>Radish 1kg</h3>
+                    <p>Price: ₹26</p>
+                    <button onclick="addToCart('Radish 1kg', 26)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Cabbage" data-price="20">
+                    <img src="image/cabbage.jpeg" alt="Cabbage">
+                    <h3>Cabbage 1kg</h3>
+                    <p>Price: ₹20</p>
+                    <button onclick="addToCart('Cabbage 1kg', 20)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="GreenBeans" data-price="80">
+                    <img src="image/greenbeans.jpeg" alt="GreenBeans">
+                    <h3>GreenBeans 1kg</h3>
+                    <p>Price: ₹80</p>
+                    <button onclick="addToCart('GreenBeans 1kg', 80)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Beetroot" data-price="40">
+                    <img src="image/beetroot.jpeg" alt="Beetroot">
+                    <h3>Beetroot 1kg</h3>
+                    <p>Price: ₹40</p>
+                    <button onclick="addToCart('Beetroot 1kg', 40)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Bringal" data-price="75">
+                    <img src="image/bringal.jpeg" alt="Bringal">
+                    <h3>Bringal 1kg</h3>
+                    <p>Price: ₹75</p>
+                    <button onclick="addToCart('Bringal 1kg', 75)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Greenchilli" data-price="45">
+                    <img src="image/mirchi.jpeg" alt="Greenchilli">
+                    <h3>Greenchilli 1kg</h3>
+                    <p>Price: ₹45</p>
+                    <button onclick="addToCart('Greenchilli 1kg', 45)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Drumsticks" data-price="60">
+                    <img src="image/drumsticks.jpeg" alt="Drumsticks">
+                    <h3>Drumsticks 1kg</h3>
+                    <p>Price: ₹60</p>
+                    <button onclick="addToCart('Drumsticks 1kg', 60)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="CurryLeaves" data-price="15">
+                    <img src="image/Curry_leaves.jpg" alt="CurryLeaves">
+                    <h3>CurryLeaves 1pac</h3>
+                    <p>Price: ₹15</p>
+                    <button onclick="addToCart('CurryLeaves 1pac', 15)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Pudhina" data-price="10">
+                    <img src="image/pudhina.jpeg" alt="Pudhina">
+                    <h3>Pudhina 1pac</h3>
+                    <p>Price: ₹10</p>
+                    <button onclick="addToCart('Pudhina 1pac', 10)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Ginger" data-price="180">
+                    <img src="image/ginger.jpeg" alt="Ginger">
+                    <h3>Ginger 1kg</h3>
+                    <p>Price: ₹180</p>
+                    <button onclick="addToCart('Ginger 1kg', 180)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Cauliflower" data-price="20">
+                    <img src="image/cauliflower.jpeg" alt="Cauliflower">
+                    <h3>Cauliflower 1kg</h3>
+                    <p>Price: ₹20</p>
+                    <button onclick="addToCart('Cauliflower 1kg', 20)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Mushroom" data-price="60">
+                    <img src="image/mushroom.jpeg" alt="Mushroom">
+                    <h3>Mushroom 1kg</h3>
+                    <p>Price: ₹60</p>
+                    <button onclick="addToCart('Mushroom 1kg', 60)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Capsicum" data-price="85">
+                    <img src="image/capsicum.jpeg" alt="Capsicum">
+                    <h3>Capsicum 1kg</h3>
+                    <p>Price: ₹85</p>
+                    <button onclick="addToCart('Capsicum 1kg', 85)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Pumpkin" data-price="55">
+                    <img src="image/pumpkin.jpeg" alt="Pumpkin">
+                    <h3>Pumpkin 1kg</h3>
+                    <p>Price: ₹55</p>
+                    <button onclick="addToCart('Pumpkin 1kg', 55)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <aside>
+            <h2>Cart</h2>
+            <ul id="cart-list"></ul>
+            <p>Total: ₹<span id="total-amount">0</span></p>
+            <button onclick="checkout()">Checkout</button>
+            <a href="index1.html" class="cancel-button">Cancel</a>
+        </aside>
+    </main>
+    <script>
+        let cart = [];
+
+        function addToCart(name, price) {
+            const product = cart.find(item => item.name === name);
+            if (product) {
+                product.quantity++;
+            } else {
+                
+                const category = "vegetable";  
+                cart.push({ name, price, quantity: 1, category });  
+            }
+            updateCart();
+        }
+        function removeFromCart(name) {
+            const productIndex = cart.findIndex(item => item.name === name);
+            if (productIndex > -1) {
+                cart.splice(productIndex, 1);
+            }
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartList = document.getElementById("cart-list");
+            cartList.innerHTML = "";
+
+            let totalAmount = 0;
+
+            cart.forEach(item => 
+            {
+                const li = document.createElement("li");
+                li.textContent = `${item.name} - ₹${item.price.toFixed(2)} x ${item.quantity}`;
+                const removeButton = document.createElement("button");
+                removeButton.textContent = "Remove";
+                removeButton.className = "remove-button";
+                removeButton.onclick = () => removeFromCart(item.name);
+                li.appendChild(removeButton);
+                cartList.appendChild(li);
+                totalAmount += item.price * item.quantity;
+            });
+
+            document.getElementById("total-amount").textContent = totalAmount.toFixed(2);
+        }
+
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+            } else { 
+                localStorage.setItem('cart', JSON.stringify(cart));
+                window.location.href ='payment.html';
+            }
+        }
+    </script>
+</body>
+</html>

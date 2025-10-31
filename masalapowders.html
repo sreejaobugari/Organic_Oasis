@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masala Powders</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: url(/image/masalaban.jpg) no-repeat;
+            background-size: cover;
+            color: black;
+            text-align: left;
+            padding: 2rem;
+            height: 20rem;
+            
+        }
+
+        header p img {
+            text-align: center;
+            height: 20rem;
+            width: 28rem;
+        }
+
+        main {
+            display: flex;
+            padding: 2rem;
+        }
+        .content {
+            flex: 3; 
+        }
+
+        aside {
+            flex: 1; 
+            margin-left: 2rem;
+            background-color: white;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            position:sticky;
+            top: 0; 
+            height:fit-content;
+        }
+
+        .store {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+        }
+
+        .product {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            text-align: center;
+            flex: 1 1 calc(33.33% - 2rem);
+            box-sizing: border-box;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        aside {
+            margin-top: 2rem;
+            background-color: white;
+            padding: 1rem;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #cart-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        #cart-list li {
+            margin: 0.5rem 0;
+        }
+        .remove-button {
+            background-color: #f44336; 
+            color: white;
+            border: none;
+            padding: 0.3rem 0.5rem;
+            margin-left: 1rem;
+            cursor: pointer;
+        }
+
+        .remove-button:hover {
+            background-color: #e53935;
+        }
+        .cancel-button {
+            display: block;
+            background-color: #f44336; 
+            color: white;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            margin: 1rem auto;
+            width: 100px;
+        }
+
+        .cancel-button:hover {
+            background-color: #e53935;
+            
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <p><img src="image/masala.png" width="80rem"></p>
+        </div>
+    </header>
+    <main>
+        <div class="content">
+            <div class="store">
+                <div class="product" data-name="RedChili" data-price="50">
+                    <img src="image/redchili.jpg" alt="RedChili">
+                    <h3>RedChili</h3>
+                    <p>Price: ₹50</p>
+                    <button onclick="addToCart('RedChili', 50)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Turmeric" data-price="50">
+                    <img src="image/turmeric.jpeg" alt="Turmeric">
+                    <h3>Turmeric</h3>
+                    <p>Price: ₹50</p>
+                    <button onclick="addToCart('Turmeric', 50)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Coriander" data-price="50">
+                    <img src="image/coriander.jpeg" alt="Coriander">
+                    <h3>Coriander</h3>
+                    <p>Price: ₹50</p>
+                    <button onclick="addToCart('Coriander', 50)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Cumin" data-price="50">
+                    <img src="image/cumin.jpeg" alt="Cumin">
+                    <h3>Cumin</h3>
+                    <p>Price: ₹50</p>
+                    <button onclick="addToCart('Cumin', 50)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="BlackPepper" data-price="50">
+                    <img src="image/blackpepper.jpeg" alt="BlackPepper">
+                    <h3>BlackPepper</h3>
+                    <p>Price: ₹50</p>
+                    <button onclick="addToCart('BlackPepper', 50)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="KasuriMethi" data-price="35">
+                    <img src="image/kasuri.jpeg" alt="KasuriMethi">
+                    <h3>KasuriMethi</h3>
+                    <p>Price: ₹35</p>
+                    <button onclick="addToCart('KasuriMethi', 35)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="KitchenKing" data-price="90">
+                    <img src="image/kitchenking.jpeg" alt="KitchenKing">
+                    <h3>KitchenKing</h3>
+                    <p>Price: ₹90</p>
+                    <button onclick="addToCart('KitchenKing', 90)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="GaramMasala" data-price="30">
+                    <img src="image/garam.jpeg" alt="GaramMasala">
+                    <h3>GaramMasala</h3>
+                    <p>Price: ₹30</p>
+                    <button onclick="addToCart('GaramMasala', 30)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="SambarMasala" data-price="40">
+                    <img src="image/sambar.jpeg" alt="SambarMasala">
+                    <h3>SambarMasala</h3>
+                    <p>Price: ₹40</p>
+                    <button onclick="addToCart('SambarMasala', 40)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="RasamMasala" data-price="50">
+                    <img src="image/rasam.jpeg" alt="RasamMasala">
+                    <h3>RasamMasala</h3>
+                    <p>Price: ₹50</p>
+                    <button onclick="addToCart('RasamMasala', 50)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="ChickenMasala" data-price="50">
+                    <img src="image/chicken.jpeg" alt="ChickenMasala">
+                    <h3>ChickenMasala</h3>
+                    <p>Price: ₹50</p>
+                    <button onclick="addToCart('ChickenMasala', 50)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="MuttonMasala" data-price="50">
+                    <img src="image/muuton.jpeg" alt="MuttonMasala">
+                    <h3>MuttonMasala</h3>
+                    <p>Price: ₹50</p>
+                    <button onclick="addToCart('MuttonMasala', 50)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="FishMasala" data-price="30">
+                    <img src="image/fish.jpeg" alt="FishMasala">
+                    <h3>FishMasala</h3>
+                    <p>Price: ₹30</p>
+                    <button onclick="addToCart('FishMasala', 30)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="Salt" data-price="25">
+                    <img src="image/salt.jpeg" alt="Salt">
+                    <h3>Salt</h3>
+                    <p>Price: ₹25</p>
+                    <button onclick="addToCart('Salt', 25)">Add to Cart</button>
+                </div>
+                <div class="product" data-name="GarlicPowder" data-price="70">
+                    <img src="image/garlic.jpeg" alt="GarlicPowder">
+                    <h3>GarlicPowder</h3>
+                    <p>Price: ₹70</p>
+                    <button onclick="addToCart('GarlicPowder', 70)">Add to Cart</button>
+                </div>
+                
+                
+            </div>
+        </div>
+        
+
+        <aside>
+            <h2>Cart</h2>
+            <ul id="cart-list"></ul>
+            <p>Total: ₹<span id="total-amount">0</span></p>
+            <button onclick="checkout()">Checkout</button>
+            <a href="index1.html" class="cancel-button">Cancel</a>
+        </aside>
+    </main>
+    <script>
+        let cart = [];
+
+        function addToCart(name, price) {
+            const product = cart.find(item => item.name === name);
+            if (product) {
+                product.quantity++;
+            } else {
+                
+                const category = "vegetable"; 
+                cart.push({ name, price, quantity: 1, category }); 
+            }
+            updateCart();
+        }
+        function removeFromCart(name) {
+            const productIndex = cart.findIndex(item => item.name === name);
+            if (productIndex > -1) {
+                cart.splice(productIndex, 1);
+            }
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartList = document.getElementById("cart-list");
+            cartList.innerHTML = "";
+
+            let totalAmount = 0;
+
+            cart.forEach(item => 
+            {
+                const li = document.createElement("li");
+                li.textContent = `${item.name} - ₹${item.price.toFixed(2)} x ${item.quantity}`;
+                const removeButton = document.createElement("button");
+                removeButton.textContent = "Remove";
+                removeButton.className = "remove-button";
+                removeButton.onclick = () => removeFromCart(item.name);
+                li.appendChild(removeButton);
+                cartList.appendChild(li);
+                totalAmount += item.price * item.quantity;
+            });
+
+            document.getElementById("total-amount").textContent = totalAmount.toFixed(2);
+        }
+
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+            } else {
+                
+                localStorage.setItem('cart', JSON.stringify(cart));
+                window.location.href ='payment.html';
+            }
+        }
+    </script>
+</body>
+</html>
